@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #820201;
+    color: rgb(240, 240, 240);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    overflow-x: hidden;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+.container {
+    width: 91%;
+    max-width: 680px;
+    margin: 30px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Logo ──
+   Ajusta width/height para cambiar el tamaño del logo.
+   max-width evita que se salga en pantallas pequeñas. */
+.image-container {
+    width: 300px;
+    height: 300px;
+    max-width: 70vw;
+    max-height: 70vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ── Iconos de redes sociales ── */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    margin: 16px 0 24px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ── Etiqueta de sección ── */
+.section-label {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+/* ── Tarjeta de canción ── */
+.song-card {
+  width: 100%;
+  background: #ffffff;              /* ← cambió de rojo a blanco */
+  border-radius: 17px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,0.1); /* ← cambió */
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #0a1628;                   /* ← cambió a negro azulado */
+  transition: transform 0.15s ease;
+  position: relative;               /* ← nuevo, necesario para las olas */
+}
+    
+
+
+.song-card:hover {
+    transform: scale(1.02);
+}
+
+.song-cover {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+    border-radius: 10px;
+    margin: 10px 0 10px 10px;
+}
+
+.song-info {
+    padding: 14px 16px;
+}
+
+.song-title {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.song-sub {
+    display: block;
+    font-size: 13px;
+    opacity: 0.75;
+    margin-top: 4px;
+}
+
+/* Olas El Mar */
+.song-card { position: relative; } /* agregar al .song-card existente */
+
+
+/* ── Olas ── */
+.wave-bg {
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.wave-svg {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 200%;
+}
+.w1 { height: 62px; animation: wloop 5s linear infinite; }
+.w2 { height: 46px; animation: wloop 7s linear infinite reverse; opacity: 0.65; }
+.w3 { height: 30px; animation: wloop 9s linear infinite; opacity: 0.4; }
+
+@keyframes wloop {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Imagen y texto encima de las olas ── */
+.song-cover,
+.song-info {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* ── Tiles (botones de plataformas) ── */
+a {
+    text-decoration: none;
+    color: rgb(240, 240, 240);
+}
+
+.tile {
+    width: 100%;
+    background-color: rgb(37, 37, 37);
+    margin: 5px 0;
+    border-radius: 17px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.tile:hover {
+    transform: scale(1.02);
+    transition: transform 0.15s ease;
+    background-color: rgb(52, 52, 52);
+}
+
+.tile p {
+    flex: 1;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.icon {
+    margin: 10px 12px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+/* Acento de color en tiles destacados */
+.tile-spotify { border-left: 4px solid #1DB954; }
+.tile-yt      { border-left: 4px solid #FF0000; }
+
+/* ── Responsive: móviles pequeños (menos de 400px) ── */
+@media (max-width: 400px) {
+    .container {
+        width: 94%;
+        margin: 20px 8px 30px;
+    }
+
+    .song-title {
+        font-size: 18px;
+    }
+
+    .song-cover {
+        width: 75px;
+        height: 75px;
+    }
+
+    .tile p {
+        font-size: 14px;
+    }
+}
