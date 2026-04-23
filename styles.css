@@ -146,9 +146,9 @@ body {
   bottom: 0; left: 0;
   width: 200%;
 }
-.w1 { height: 62px; animation: wloop 5s linear infinite; }
-.w2 { height: 46px; animation: wloop 7s linear infinite reverse; opacity: 0.65; }
-.w3 { height: 30px; animation: wloop 9s linear infinite; opacity: 0.4; }
+.w1 { height: 35px; animation: wloop 5s linear infinite; }
+.w2 { height: 25px; animation: wloop 7s linear infinite reverse; opacity: 0.65; }
+.w3 { height: 16px; animation: wloop 9s linear infinite; opacity: 0.4; }
 
 @keyframes wloop {
   from { transform: translateX(0); }
